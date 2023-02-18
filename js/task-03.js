@@ -12,3 +12,14 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+
+
+
+const gallery = document.querySelector('.gallery');
+
+// Створюємо рядок HTML для кожного зображення в масиві
+const galleryItems = images.map(({ url, alt }) => `<li><img src="${url}" alt="${alt}"></li>`);
+
+// Додаємо усі елементи галереї до DOM за одну операцію
+gallery.insertAdjacentHTML('beforeend', galleryItems.join(''));
