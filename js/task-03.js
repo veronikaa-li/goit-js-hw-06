@@ -16,10 +16,19 @@ const images = [
 
 
 
-const gallery = document.querySelector('.gallery');
+// Функція для створення елемента li зображення
+function createImageElement(image) {
+  return `<li><img src="${image.url}" alt="${image.alt}"></li>`;
+}
 
-// Створюємо рядок HTML для кожного зображення в масиві
-const galleryItems = images.map(({ url, alt }) => `<li><img src="${url}" alt="${alt}"></li>`);
+// Знаходимо ul.gallery
+const gallery = document.querySelector('ul.gallery');
 
-// Додаємо усі елементи галереї до DOM за одну операцію
-gallery.insertAdjacentHTML('beforeend', galleryItems.join(''));
+// Створюємо рядок з HTML кодом всіх зображень
+const imagesHTML = images.map(image => createImageElement(image)).join('');
+
+// Додаємо всі зображення до ul.gallery
+gallery.insertAdjacentHTML('beforeend', imagesHTML);
+
+
+
